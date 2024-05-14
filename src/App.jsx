@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import Recipe from './Components/Recipe'
+import Banner from './Components/Banner'
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
@@ -32,6 +33,7 @@ const App = () => {
       <Navbar/>
       <Hero/>
       <Recipe meals={filteredRecipes}/>
+      <Banner/>
     </div>
   )
 }
