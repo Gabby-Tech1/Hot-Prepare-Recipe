@@ -14,7 +14,8 @@ const customStyles = {
     borderRadius: '10px',
     padding: '20px',
     overflow: 'auto',
-    maxHeight: '80vh', 
+    maxHeight: '80vh',
+    minWidth: '400px', 
 }
 }
 
@@ -142,7 +143,7 @@ const Recipe = ({ meals }) => {
                 <img src={selectedRecipe.image} alt={selectedRecipe.name} className='w-full max-w-lg object-cover' />
               </div>
 
-              <div className='flex flex-col md:flex-row item-center md:gap-8'>
+              <div className='flex flex-col justify-between md:flex-row item-center md:gap-20 md:px-16'>
               <div className='mt-10 px-3 md:px-6'>
                 <h2 className='text-xl font-semibold'>Ingredients:</h2>
                 <ul className='list-disc ml-4'>
