@@ -13,7 +13,8 @@ const App = () => {
     try {
       const response = await fetch(URL)
       const data = await response.json()
-      setRecipes(data['recipes'])
+      console.log(data)
+      setRecipes(data.recipes)
       
     } catch (error) {
       console.error(error)

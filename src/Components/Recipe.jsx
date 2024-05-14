@@ -1,9 +1,27 @@
 import React, { useState } from 'react'
-import { FaAngleDoubleDown } from "react-icons/fa";
+import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
+import { IoTimerOutline } from 'react-icons/io5';
+import Modal from 'react-modal';
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'rgba(254, 215, 170, 1)',
+    borderRadius: '10px',
+    padding: '20px',
+    overflow: 'auto',
+    maxHeight: '80vh', 
+}
+}
 
 const Recipe = ({ meals }) => {
   const [showAll, setShowAll] = useState(false)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [selectedRecipe, setSelectedRecipe] = useState(null)
 
   const handleShowAll = () => {
     setShowAll(true)
@@ -11,6 +29,16 @@ const Recipe = ({ meals }) => {
 
   const handleCollapse = () => {
     setShowAll(false)
+  }
+
+  const handleOpenModal = (recipe) => {
+    setSelectedRecipe(recipe)
+    setModalIsOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setSelectedRecipe(null)
+    setModalIsOpen(false)
   }
 
   const renderMeals = () => {
@@ -28,7 +56,9 @@ const Recipe = ({ meals }) => {
           <img src={item.image} alt={item.name} title={item.name} className='w-full mb-2 object-cover h-64' />
           <div className=' text-lg font-semibold'>{item.name}</div>
           <div className='text-gray-500 space-x-2'>{item.cuisine}</div>
-          <button className='text-white mt-7 rounded-full bg-orange-500 py-2 px-4 hover:scale-110 duration-300 ease-linear font-semibold'>Read More</button>
+          <button className='text-white mt-7 rounded-full bg-orange-500 py-2 px-4 hover:scale-110 duration-300 ease-linear font-semibold' onClick={() => handleOpenModal(item)}>
+            Read More
+          </button>
         </div>
       )
     })
@@ -55,22 +85,79 @@ const Recipe = ({ meals }) => {
               </button>
             </div>
           </div>
-          
         )}
 
         {showAll && (
           <div className=' w-52 mx-auto cursor-pointer mt-10'>
-          <div className='flex gap-2 items-center justify-center hover:text-orange-500 text-xl duration-300 ease-linear'>
-            <FaAngleDoubleDown className=''/>
-            <button className='' onClick={handleCollapse}>
-              Collapse
-            </button>
+            <div className='flex gap-2 items-center justify-center hover:text-orange-500 text-xl duration-300 ease-linear'>
+              <FaAngleDoubleUp className=''/>
+              <button className='' onClick={handleCollapse}>
+                Collapse
+              </button>
+            </div>
           </div>
-        </div>
         )}
       </div>
-    </div>
-  )
-}
 
-export default Recipe
+      <Modal isOpen={modalIsOpen} onRequestClose={handleCloseModal} ariaHideApp={false} style={customStyles}>
+        {selectedRecipe && (
+          <div className=' bg-orange-200 scroll-smooth'>
+            <div className=''>
+              <div className='text-center pt-6 px-6 md:px-12'>
+                <h1 className='text-3xl font-bold tracking-wider'>{selectedRecipe.name}</h1>
+              </div>
+
+              <div className='flex justify-center mt-10'>
+                <img src={selectedRecipe.image} alt={selectedRecipe.name} className='w-full max-w-lg object-cover' />
+              </div>
+
+              <div className='mt-10 px-6 md:px-12'>
+                <h2 className='text-xl font-semibold'>Ingredients:</h2>
+                <ul className='list-disc ml-4'>
+                  {selectedRecipe.ingredients.map((ingredient, index) => (
+                    <li key={index} className='md:text-lg text-sm'>{ingredient}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className='mt-10 px-6 md:px-12'>
+                <h2 className='text-xl font-semibold'>Instructions:</h2>
+                <ol className='list-decimal ml-4'>
+                  {selectedRecipe.instructions.map((instruction, index) => (
+                    <li key={index} className='md:text-lg text-sm'>{instruction}</li>
+                  ))}
+                </ol>
+              </div>
+
+
+              <div className='flex flex-col md:flex-row justify-between items-center'>
+                <div className='mt-10 px-6 md:px-12'>
+                  <h2 className='text-xl font-semibold'>Cuisine:</h2>
+                  <p>{selectedRecipe.cuisine}</p>
+                </div>
+                <div className='mt-10 px-6 md:px-12 flex flex-col items-center gap-1 '>
+                  <div>
+                    <p className='text-center'>Estimated Preparation Time:</p>
+                  </div>
+                  <div className='flex items-center gap-1'>
+                    <IoTimerOutline className='font-bold text-2xl'/>
+                    <p className='font-bold text-2xl'>{selectedRecipe.prepTimeMinutes}</p>
+                  </div>
+                </div>
+                
+              </div>
+              <div className='flex justify-center mt-10'>
+              <button className='text-white mt-7 rounded-full bg-orange-500 py-2 px-4 hover:scale-110 duration-300 ease-linear font-semibold mb-4' onClick={handleCloseModal}>
+              Close
+              </button>
+              </div>
+              </div>
+
+          </div>
+            )}
+        </Modal>
+    </div>
+    )
+    }
+
+export default Recipe;
