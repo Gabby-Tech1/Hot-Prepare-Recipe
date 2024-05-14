@@ -101,7 +101,7 @@ const Recipe = ({ meals }) => {
 
       <Modal isOpen={modalIsOpen} onRequestClose={handleCloseModal} ariaHideApp={false} style={customStyles}>
         {selectedRecipe && (
-          <div className=' bg-orange-200 scroll-smooth'>
+          <div className='scroll-smooth'>
             <div className=''>
               <div className='text-center pt-6 px-6 md:px-12'>
                 <h1 className='text-3xl font-bold tracking-wider'>{selectedRecipe.name}</h1>
@@ -111,7 +111,8 @@ const Recipe = ({ meals }) => {
                 <img src={selectedRecipe.image} alt={selectedRecipe.name} className='w-full max-w-lg object-cover' />
               </div>
 
-              <div className='mt-10 px-6 md:px-12'>
+              <div className='flex flex-col md:flex-row item-center md:gap-8'>
+              <div className='mt-10 px-3 md:px-6'>
                 <h2 className='text-xl font-semibold'>Ingredients:</h2>
                 <ul className='list-disc ml-4'>
                   {selectedRecipe.ingredients.map((ingredient, index) => (
@@ -119,8 +120,18 @@ const Recipe = ({ meals }) => {
                   ))}
                 </ul>
               </div>
+              <div className='mt-10 px-3 md:px-6'>
+                <h2 className='text-xl font-semibold'>Tags:</h2>
+                <ul className='list-disc ml-4'>
+                  {selectedRecipe.tags.map((ingredient, index) => (
+                    <li key={index} className='md:text-lg text-sm'>{ingredient}</li>
+                  ))}
+                </ul>
+              </div>
 
-              <div className='mt-10 px-6 md:px-12'>
+              </div>
+
+              <div className='mt-10 px-3 md:px-6'>
                 <h2 className='text-xl font-semibold'>Instructions:</h2>
                 <ol className='list-decimal ml-4'>
                   {selectedRecipe.instructions.map((instruction, index) => (
@@ -131,11 +142,11 @@ const Recipe = ({ meals }) => {
 
 
               <div className='flex flex-col md:flex-row justify-between items-center'>
-                <div className='mt-10 px-6 md:px-12'>
+                <div className='mt-10 px-3 md:px-6'>
                   <h2 className='text-xl font-semibold'>Cuisine:</h2>
                   <p>{selectedRecipe.cuisine}</p>
                 </div>
-                <div className='mt-10 px-6 md:px-12 flex flex-col items-center gap-1 '>
+                <div className='mt-10 px-3 md:px-6 flex flex-col items-center gap-1 '>
                   <div>
                     <p className='text-center'>Estimated Preparation Time:</p>
                   </div>
