@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import Recipe from './Components/Recipe'
@@ -17,7 +18,6 @@ const App = () => {
     try {
       const response = await fetch(URL)
       const data = await response.json()
-      console.log(data)
       setRecipes(data.recipes)
       
     } catch (error) {
@@ -25,12 +25,25 @@ const App = () => {
     }
   }
 
+  // const getRecipe = async () => {
+  //   try {
+  //     const axiosFetch = await axios.get(URL)
+  //     const axiosdata = await axiosFetch.
+  //     console.log(axiosdata)
+  //     setRecipes(axiosdata.recipes)
+  //   }
+  //   catch(err){
+  //     console.error(err)
+  //   }
+  // }
+
   useEffect(() => {
     getRecipes()
   },[])
 
   const filteredRecipes = selectedRecipes ? recipes.filter((product)=> product.categories === selectedRecipes)
     : recipes
+    
   return (
     <div>
       <Navbar/>

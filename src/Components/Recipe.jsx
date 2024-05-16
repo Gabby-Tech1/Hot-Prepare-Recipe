@@ -55,7 +55,7 @@ const Recipe = ({ meals }) => {
     if (filteredMeals.length === 0) {
       return (
         <div className='flex w-full justify-center items-center h-10'>
-          <p className='text-2xl font-semibold text-gray-500'>No items found.</p>
+          <p className='text-2xl font-semibold text-gray-500'>No recipe found!</p>
         </div>
       )
     }
