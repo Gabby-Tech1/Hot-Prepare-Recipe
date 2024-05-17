@@ -22,7 +22,6 @@ const Navbar = () => {
                 <ul className="hidden lg:flex ml-14 space-x-12 font-medium text-lg">
                     <li className=' hover:text-orange-500 duration-300 ease-in'><a href="#">Home</a></li>
                     <li className=' hover:text-orange-500 duration-300 ease-in'><a href="#">Recipes</a></li>
-                    <li className=' hover:text-orange-500 duration-300 ease-in'><a href="#">Blogs</a></li>
                     <li className=' hover:text-orange-500 duration-300 ease-in'><a href="#">About Us</a></li>
                 </ul>
                 <div className="hidden lg:flex font-medium text-white text-xl justify-center items-center bg-orange-500 rounded-3xl hover:scale-110 duration-500 ease-linear">
