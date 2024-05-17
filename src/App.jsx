@@ -5,6 +5,8 @@ import Recipe from './Components/Recipe'
 import Banner from './Components/Banner'
 import Contact from './Components/Contact'
 import Footer from './Components/Footer'
+import { BrowserRouter } from 'react-router-dom'
+import About from './Components/About'
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
@@ -23,17 +25,6 @@ const App = () => {
     }
   }
 
-  // const getRecipe = async () => {
-  //   try {
-  //     const axiosFetch = await axios.get(URL)
-  //     const axiosdata = await axiosFetch.
-  //     console.log(axiosdata)
-  //     setRecipes(axiosdata.recipes)
-  //   }
-  //   catch(err){
-  //     console.error(err)
-  //   }
-  // }
 
   useEffect(() => {
     getRecipes()
@@ -43,14 +34,17 @@ const App = () => {
     : recipes
     
   return (
+    <BrowserRouter>
     <div>
       <Navbar/>
       <Hero/>
       <Recipe meals={filteredRecipes}/>
       <Banner/>
+      <About/>
       <Contact/>
       <Footer/>
     </div>
+    </BrowserRouter>
   )
 }
 

@@ -9,6 +9,7 @@ const Footer = () => {
     <footer className='bg-orange-500 text-white text-center py-4'>
       <div className='container mx-auto px-4'>
         <div className='text-3xl font-bold'>Hot Prepare Recipe</div>
+        <p className='text-center text-gray-200 pb-2'>Made by Gabby Tech</p>
         <div className='flex justify-center space-x-4'>
           <a href='https://wa.me/+233591071237' target='_blank' rel='noopener noreferrer'>
             <img src={Whatsapp} alt='WhatsApp' className='hover:scale-110 duration-300 ease-linear' width='60' height='60' />

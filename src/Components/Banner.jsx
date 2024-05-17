@@ -7,7 +7,7 @@ const Banner = () => {
         <div className='container'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-white rounded-3xl bg-orange-500'>
                 <div className='p-6 sm:p-8 '>
-                    <p data-aos="slide-right" className='text-sm'>Banku</p>
+                    <p data-aos="slide-right" className='text-sm'>Pastries</p>
                     <h1 data-aos="zoom-out" className='uppercase text-4xl lg:text-6xl font-bold '>Recipe is so delicious.</h1>
                     <p data-aos="fade-up" className='text-sm '>Yummy and Delicious</p>
                 </div>

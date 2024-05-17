@@ -82,7 +82,7 @@ const Recipe = ({ meals }) => {
   }
 
   return (
-    <div className='lg:my-2 sm:my-12'>
+    <div className='lg:my-2 py-14' id='recipe'>
       <div className='text-center px-6 md:px-12'>
         <h1 className='text-3xl font-bold tracking-wider'>Popular <span className='text-orange-500'>Recipes</span> You Can't Miss</h1>
         <p className='text-gray-500 px-4 sm:px-6 md:px-8 sm text-sm md:text-lg font-semibold'>Must-try recipe! Delicious, easy, and loved by all. Give it a try tonight! Bon appetit!</p>

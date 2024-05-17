@@ -29,7 +29,7 @@ const Contact = () => {
   }
 
   return (
-    <div className='container mx-auto px-4 py-10'>
+    <div className='container mx-auto px-4 py-10' id='contact'>
       <div className='text-3xl md:text-5xl font-bold text-center my-10'>GET IN <span className='text-orange-500'>TOUCH</span> WITH US</div>
       <div className='max-w-md mx-auto'>
           <form onSubmit={handleSubmit}>

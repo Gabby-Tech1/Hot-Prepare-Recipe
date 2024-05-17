@@ -3,7 +3,7 @@ import hero from '../assets/hero.png'
 
 const Hero = () => {
   return (
-    <div className='mb-12 lg:mb-0'>
+    <div className='mb-12 lg:mb-0' id='hero'>
         <div className='lg:h-[90vh] flex items-center justify-between flex-col-reverse lg:flex-row px-8 lg:px-16 gap-12'>
             <div className='flex flex-col gap-6'>
                 <h1 className='md:text-5xl text-3xl font-bold'>
