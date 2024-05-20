@@ -1,5 +1,6 @@
 import React from 'react'
 import food from '../assets/banner.jpeg'
+import {motion } from 'framer-motion'
 
 const Banner = () => {
   return (
@@ -12,7 +13,11 @@ const Banner = () => {
                     <p data-aos="fade-up" className='text-sm '>Yummy and Delicious</p>
                 </div>
                 <div data-aos="zoom-in" className='h-full flex items-center'>
-                    <img src={food} alt="" className='scale-125 w-[250px] md:w-[300px] h-[250px] md:h-[300px] rounded-full mx-auto drop-shadow-2xl object-cover '/>
+                    <motion.img
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 2, type:'tween', ease: 'easeInOut'}}
+                    src={food} alt="" className='scale-125 w-[250px] md:w-[300px] h-[250px] md:h-[300px] rounded-full mx-auto drop-shadow-2xl object-cover '/>
                 </div>
                 <div className='flex flex-col justify-center gap-4 p-6 sm:p-8 '>
                     <p data-aos="zoom-out" className='font-bold text-xl'>Learn to Cook Foreign Recipes</p>

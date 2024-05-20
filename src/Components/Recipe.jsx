@@ -73,7 +73,7 @@ const Recipe = ({ meals }) => {
         <motion.div 
           initial={{opacity: 0}}
           animate={{opacity: 1}}
-          transition={{duration: 2, type: 'tween', ease: 'easeIn'}}
+          transition={{duration: 2, type:'', ease: 'easeIn'}}
           key={item.id} className='border p-4 shadow-xl hover:scale-105 duration-500 ease-in-out'>
           <img src={item.image} alt={item.name} title={item.name} className='w-full mb-2 object-cover h-64' />
           <div className=' text-lg font-semibold'>{item.name}</div>
