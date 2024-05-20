@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import { IoTimerOutline } from 'react-icons/io5';
 import Modal from 'react-modal';
+import {motion} from 'framer-motion'
 
 const customStyles = {
   content: {
@@ -69,14 +70,18 @@ const Recipe = ({ meals }) => {
     }
     return limitedMeals.map(item => {
       return (
-        <div key={item.id} className='border p-4 shadow-xl hover:scale-105 duration-500 ease-in-out'>
+        <motion.div 
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{duration: 2, type: 'tween', ease: 'easeIn'}}
+          key={item.id} className='border p-4 shadow-xl hover:scale-105 duration-500 ease-in-out'>
           <img src={item.image} alt={item.name} title={item.name} className='w-full mb-2 object-cover h-64' />
           <div className=' text-lg font-semibold'>{item.name}</div>
           <div className='text-gray-500 space-x-2'>{item.cuisine}</div>
           <button className='text-white mt-7 rounded-full bg-orange-500 py-2 px-4 hover:scale-110 duration-300 ease-linear font-semibold' onClick={() => handleOpenModal(item)}>
             Read More
           </button>
-        </div>
+        </motion.div>
       )
     })
   }
